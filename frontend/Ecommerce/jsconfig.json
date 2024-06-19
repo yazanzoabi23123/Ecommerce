@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    // "checkJs": true,
+    "jsx": "react-jsx",
+    "baseUrl": "src",
+    "resolveJsonModule": true
+  },
+  "include": [
+    "src"
+, "../Ecommerce/src/App.jsx", "../Ecommerce/src/main.jsx", "../Ecommerce/src/theme.js"  ],
+  "exclude": [
+    "node_modules",
+    "build"
+  ]
+}
