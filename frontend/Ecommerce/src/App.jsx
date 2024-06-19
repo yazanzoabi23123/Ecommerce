@@ -12,6 +12,7 @@ import  Router from "./routes/Router";
 import CartPage from "./components/main/CartPage";
 
 function App({chil}) {
+  
   const [theme, colorMode] = useMode();
   return (
       // <BrowserRouter>
