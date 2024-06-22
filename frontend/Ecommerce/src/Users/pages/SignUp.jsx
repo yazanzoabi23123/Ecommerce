@@ -37,7 +37,7 @@ export default function SignnUp() {
 
   const { user } = useUser();
   console.log(user);
-  if (user) return <Navigate replace to={ROUTES.ROOT} />;
+  //if (user) return <Navigate replace to={ROUTES.ROOT} />;
 
   if (authMode === "signin") {
     return (
