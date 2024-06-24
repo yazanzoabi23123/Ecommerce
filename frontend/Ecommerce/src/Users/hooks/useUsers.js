@@ -26,23 +26,24 @@ const useUsers = () => {
       setUser(user);
       setError(errorMessage);
     },
-    [setUser, setLoading, setError]
+    [setUser]
   );
 
   const handleLogin = useCallback(
     async (user) => {
       try {
+        
         const token = await login(user);
         setTokenInLocalStorage(token);
         setToken(token);
         const userFromLocalStorage = getUser();
         requestStatus(false, null, userFromLocalStorage);
-        navigate(ROUTES.PRODUCTS);
+        navigate(ROUTES.ROOT);
       } catch (error) {
         requestStatus(false, error, null);
       }
     },
-    [navigate, requestStatus, setToken]
+    []
   );
 
   const handleLogout = useCallback(() => {

@@ -12,7 +12,7 @@ namespace E_commerce.Services.Data.Repository.Users
         public UserRepositoryMongoDb(IMongoClient mongoClient)
         {
             var database = mongoClient.GetDatabase("E_commerce");
-            _users = database.GetCollection<User>("users");
+            _users = database.GetCollection<User>("Users");
         }
         public async Task<bool> CreateUserAsync(User newUser)
         {

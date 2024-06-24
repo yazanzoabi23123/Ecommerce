@@ -12,7 +12,7 @@ export default function useAxios() {
     const requestInterceptor = axios.interceptors.request.use((data) => {
       console.log("in");
       return Promise.resolve(data);
-    }, null);
+    }, );
 
     const responseInterceptor = axios.interceptors.response.use(
       null,

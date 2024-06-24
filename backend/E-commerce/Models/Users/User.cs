@@ -6,6 +6,7 @@ namespace E_commerce.Models.Users
 {
     public class User
     {
+
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
         public string Id { get; set; } = Guid.NewGuid().ToString();

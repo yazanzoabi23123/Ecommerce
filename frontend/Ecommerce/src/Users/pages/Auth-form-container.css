@@ -1,4 +1,4 @@
-.Auth-form-container {
+/* .Auth-form-container {
     display: flex;
     position: absolute;
     justify-content: center;
@@ -30,7 +30,7 @@
     font-size: 24px;
     color: rgb(18, 18, 18);
     font-weight: 800;
-  }
+  } */
   
   label {
     font-size: 14px;
@@ -42,6 +42,9 @@
   }
   .color{
     color: black;
+  }
+  .text-center{
+    padding-left: 2%;
   }
 
   

@@ -6,15 +6,18 @@ import { useUser } from "../providers/UserProvider";
 import { useState } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
 import ROUTES from "../../routes/routesModel";
-import { Input, Stack, Typography } from "@mui/material";
+import { Container, Stack, Typography } from "@mui/material";
 import initialSignInForm from "../helpers/initialForms/initialSignInForm.js";
 import loginSchema from "../models/loginSchema";
 import useForm2 from "../hooks/useForm2.js";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./Auth-form-container.css";
 import NavBarLink from "../../routes/components/NavBarLink.jsx";
-import { ShoppingCartOutlined } from "@mui/icons-material";
+import { Padding, ShoppingCartOutlined } from "@mui/icons-material";
 import Footer from "../../components/footer/footer.jsx";
+import Form from "../../Users/components/Form.jsx";
+import Input from "../../Users/components/Input.jsx";
+import UserForm from "../../Users/components/UserForm.jsx";
 export default function SignnUp() {
   let [authMode, setAuthMode] = useState("signin");
   const changeAuthMode = () => {
@@ -37,125 +40,82 @@ export default function SignnUp() {
 
   const { user } = useUser();
   console.log(user);
-  //if (user) return <Navigate replace to={ROUTES.ROOT} />;
+  if (user) return <Navigate replace to={ROUTES.ROOT} />;
 
   if (authMode === "signin") {
     return (
-      <div
-        className="Auth-form-container"
-        to={ROUTES.ROOT}
-        onReset={rest2.handleReset}
-        onChange={rest2.validateForm}
+    
+      
+      <Container
+        sx={{
+          paddingTop: 8,
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
       >
-        <form className="Auth-form" onSubmit={rest2.onSubmit}>
-          <div className="Auth-form-content">
-            <h3 className="Auth-form-title">Sign In</h3>
-            <div className="text-center">
-              <span className="color">Not registered yet? </span>
-              <span className="link-primary" onClick={changeAuthMode}>
-                Sign Up
-              </span>
-            </div>
-            <div className="form-group mt-3">
-              <label>Email address</label>
-              <Input
-                type="email"
-                name="email"
-                className="form-control mt-1"
-                placeholder="Enter email"
-                error={value2.errors.email ? true : false}
-                onChange={rest2.handleChange}
-                data={value2.data}
-              />
-            </div>
-            <div className="form-group mt-3">
-              <label>Password</label>
-              <Input
-                name="password"
-                type="password"
-                className="form-control mt-1"
-                placeholder="Enter password"
-                error={value2.errors.password ? true : false}
-                onChange={rest2.handleChange}
-                data={value2.data}
-              />
-            </div>
-            <div className="d-grid gap-2 mt-3">
-              <NavBarLink to={ROUTES.ROOT}>
-              <button
-                type="submit"
-                className="btn btn-primary"
-                onClick={(e) => e.preventDefault()}
-                onSubmit={rest.onSubmit}
-
-              >
-                Submit
-              </button>
-              </NavBarLink>
-            </div>
-          </div>
-        </form>
-      </div>
+        <Form
+          title="login"
+          styles={{ maxWidth: "450px" }}
+          to={ROUTES.ROOT}
+          onSubmit={rest2.onSubmit}
+          onReset={rest2.handleReset}
+          onChange={rest2.validateForm}
+        >
+          <Input
+            label="email"
+            name="email"
+            type="email"
+            error={value2.errors.email}
+            onChange={rest2.handleChange}
+            data={value2.data}
+          />
+          <Input
+            label="password"
+            name="password"
+            type="password"
+            error={value2.errors.password}
+            onChange={rest2.handleChange}
+            data={value2.data}
+          />
+      <div className="text-center" >
+       <span className="color">Not registered yet? </span>
+       <span className="link-primary" onClick={changeAuthMode}>
+         Sign Up
+       </span>
+       </div>
+        </Form>
+       
+      </Container>
+     
     );
   }
 
   return (
-    <div
-      className="Auth-form-container"
+    <Container
+    sx={{
+      paddingTop: 8,
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+    }}
+  >
+    <UserForm
       onSubmit={rest.onSubmit}
       onReset={rest.handleReset}
-      onChange={rest.validateForm}
-    >
-      <form className="Auth-form">
-        <div className="Auth-form-content">
-          <h3 className="Auth-form-title">Sign In</h3>
-          <div className="text-center">
-            <span className="color">Not registered yet? </span>
-            <span className="link-primary" onClick={changeAuthMode}>
-              Sign In
-            </span>
-          </div>
-          <div className="form-group mt-3">
-            <label>Full Name</label>
-            <Input
-              type="text"
-              className="form-control mt-1"
-              placeholder="e.g Jane Doe"
-              error={value.errors.email}
-              onChange={rest.handleChange}
-              data={value.data}
-            />
-          </div>
-          <div className="form-group mt-3">
-            <label>Email address</label>
-            <Input
-              type="email"
-              className="form-control mt-1"
-              placeholder="Email Address"
-              error={value.errors.password}
-              onChange={rest.handleChange}
-              data={value.data}
-            />
-          </div>
-          <div className="form-group mt-3">
-            <label>Password</label>
-            <Input
-              type="password"
-              className="form-control mt-1"
-              placeholder="Password"
-              error={value.errors.password}
-              onChange={rest.handleChange}
-              data={value.data}
-            />
-          </div>
-          <div className="d-grid gap-2 mt-3">
-            <button type="submit" className="btn btn-primary">
-              Submit
-            </button>
-          </div>
-        </div>
-      </form>
-    </div>
+      onFormChange={rest.validateForm}
+      title="register form"
+      errors={value.errors}
+      data={value.data}
+      onInputChange={rest.handleChange}
+      setData={rest.setData}
+     
+     />      
+    
+    
+   
+  </Container>
+  
   );
  
 }

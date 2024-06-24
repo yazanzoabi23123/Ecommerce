@@ -3,7 +3,9 @@ import axios from "axios";
 const apiUrl = process.env.REACT_APP_API_URL || "https://localhost:7238/api";
 
 export const login = async (user) => {
+  
   try {
+    console.log(user)
     const { data } = await axios.post(`${apiUrl}/users/login`, user);
     console.log(data);
     return data;
