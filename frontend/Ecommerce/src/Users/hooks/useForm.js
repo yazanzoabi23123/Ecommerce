@@ -47,6 +47,7 @@ const useForm = (initialForm, schema, handleSubmit) => {
   }, [schema, data]);
 
   const onSubmit = useCallback(() => {
+    
     handleSubmit(data);
   }, [handleSubmit, data]);
 
@@ -66,10 +67,10 @@ const useForm = (initialForm, schema, handleSubmit) => {
   };
 };
 
-useForm.propTypes = {
-  initialForm: object.isRequired,
-  schema: object.isRequired,
-  handleSubmit: func.isRequired,
-};
+// useForm.propTypes = {
+//   initialForm: object.isRequired,
+//   schema: object.isRequired,
+//   handleSubmit: func.isRequired,
+// };
 
 export default useForm;

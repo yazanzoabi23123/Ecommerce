@@ -51,8 +51,8 @@ const useUsers = () => {
     setUser(null);
   }, [setUser]);
 
-  const handleSignup = useCallback(() => {
-    const runner = async (userFromClient) => {
+  const handleSignup = useCallback((userFromClient) => {
+    const fn  = async () => {
       try {
         const normalizedUser = normalizeUser(userFromClient);
         await signup(normalizedUser);
@@ -64,7 +64,7 @@ const useUsers = () => {
         requestStatus(false, error, null);
       }
     }
-    runner();
+     fn();   
   },
     [requestStatus, handleLogin]
   );

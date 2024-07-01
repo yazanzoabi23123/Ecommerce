@@ -85,6 +85,20 @@ namespace E_commerce.Services.Products
                 throw new Exception("Product not found");
             }
         }
+        public async Task RemoveProductFromCart(string prductId, string userId)
+        {
+            var product = await _productRepository.GetOneProductAsync(prductId);
+            bool result=false;
+            if (product.Cart.Contains(userId))
+            {
+               result = await _productRepository.DeleteProductFromCart(userId, prductId);
+            }
+            if (!result)
+            {
+                throw new Exception("Product not found");
+            }
+            
+        }
         public async Task<bool> IsOwner(string productId, string userId)
         {
             var product = await _productRepository.GetOneProductAsync(productId);

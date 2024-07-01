@@ -22,6 +22,9 @@ import ROUTES from "../../routes/routesModel";
 import NavBarLink from "../../routes/components/NavBarLink";
 import { Link, useNavigate, useParams, useSearchParams } from "react-router-dom";
 import { useGetproductByNameQuery } from "../../Redux/product";
+import { useUser } from "../../Users/providers/UserProvider";
+import Logged from "./Logged";
+import NavBar from "./menu/NavBar";
 
 const Search = styled("div")(({ theme }) => ({
   flexGrow: 0.4,
@@ -80,6 +83,8 @@ const Header2 = () => {
   const [anchorEl, setAnchorEl] = useState(null);
   const [selectedIndex, setSelectedIndex] = useState(0);
   const open = Boolean(anchorEl);
+  const { user } = useUser();
+
   const handleClickListItem = (event) => {
     setAnchorEl(event.currentTarget);
   };
@@ -191,20 +196,7 @@ const Header2 = () => {
       </Search>
 
       <Stack direction={"row"} alignItems={"center"}>
-        <NavBarLink to={ROUTES.CART}>
-        <IconButton aria-label="cart">
-          <StyledBadge badgeContent={4} color="primary">
-            <ShoppingCartIcon 
-           
-            />
-          </StyledBadge>
-        </IconButton>
-        </NavBarLink>
-        <IconButton>
-          <NavBarLink to={ROUTES.SIGNUP}>
-            <Person2OutlinedIcon />
-          </NavBarLink>
-        </IconButton>
+        <NavBar/>
       </Stack>
     </Container>
   );

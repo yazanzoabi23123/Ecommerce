@@ -1,27 +1,27 @@
-// import React from "react";
-// import { string, func } from "prop-types";
-// import NavBarLink from "./NavBarLink";
-// import MenuItem from "@mui/material/MenuItem";
-// import { makeFirstLetterCapital } from "../../layout/header/topNavBar/menu/utils/algoMethods";
+import React from "react";
+import { string, func } from "prop-types";
+import NavBarLink from "./NavBarLink";
+import MenuItem from "@mui/material/MenuItem";
+import { makeFirstLetterCapital } from "../../components/main/utils/algoMethods";
 
-// const MenuLink = ({ text, navigateTo, onClick, styles }) => {
-//   return (
-//     <NavBarLink to={navigateTo}>
-//       <MenuItem sx={{ ...styles }} onClick={onClick}>
-//         {makeFirstLetterCapital(text)}
-//       </MenuItem>
-//     </NavBarLink>
-//   );
-// };
+const MenuLink = ({ text, navigateTo, onClick, styles }) => {
+  return (
+    <NavBarLink to={navigateTo}>
+      <MenuItem sx={{ ...styles }} onClick={onClick}>
+        {makeFirstLetterCapital(text)}
+      </MenuItem>
+    </NavBarLink>
+  );
+};
 
-// MenuLink.propTypes = {
-//   navigateTo: string.isRequired,
-//   onClick: func.isRequired,
-//   text: string.isRequired,
-// };
+MenuLink.propTypes = {
+  navigateTo: string.isRequired,
+  onClick: func.isRequired,
+  text: string.isRequired,
+};
 
-// MenuLink.defaultProps = {
-//   styles: {},
-// };
+MenuLink.defaultProps = {
+  styles: {},
+};
 
-// export default MenuLink;
+export default MenuLink;

@@ -36,12 +36,12 @@ namespace E_commerce.Controllers
         public async Task<IActionResult> Get(string id)
         {
 
-            //bool.TryParse(HttpContext.User.FindFirstValue("isAdmin"), out bool isAdmin);
-            //bool isMyId = HttpContext.User.FindFirstValue("id") == id;
-            //if (!isAdmin && !isMyId)
-            //{
-            //    return Unauthorized("You can watch only your own profile");
-            //}
+            bool.TryParse(HttpContext.User.FindFirstValue("isAdmin"), out bool isAdmin);
+            bool isMyId = HttpContext.User.FindFirstValue("id") == id;
+            if (!isAdmin && !isMyId)
+            {
+                return Unauthorized("You can watch only your own profile");
+            }
 
             try
             {
@@ -125,7 +125,7 @@ namespace E_commerce.Controllers
             {
                 User? u = await _usersService.LoginAsync(loginModel);
                 string token = JwtHelper.GenerateAuthToken(u);
-                return Ok("login token");
+                return Ok(token);
             }
             catch (AuthenticationException ex)
             {

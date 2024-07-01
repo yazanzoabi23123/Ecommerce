@@ -9,7 +9,6 @@ import ROUTES from "../../routes/routesModel";
 import { Container, Stack, Typography } from "@mui/material";
 import initialSignInForm from "../helpers/initialForms/initialSignInForm.js";
 import loginSchema from "../models/loginSchema";
-import useForm2 from "../hooks/useForm2.js";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./Auth-form-container.css";
 import NavBarLink from "../../routes/components/NavBarLink.jsx";
@@ -31,7 +30,7 @@ export default function SignnUp() {
     handleSignup
   );
 
-  const { value2, ...rest2 } = useForm2(
+  const { value: value2, ...rest2 } = useForm(
     initialSignInForm,
     loginSchema,
     handleLogin
@@ -111,9 +110,6 @@ export default function SignnUp() {
       setData={rest.setData}
      
      />      
-    
-    
-   
   </Container>
   
   );

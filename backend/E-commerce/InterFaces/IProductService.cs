@@ -17,6 +17,8 @@ namespace E_commerce.InterFaces
         Task<List<Product>> GetMyProductsAsync(string productrId);
 
         Task AddProductToCartAsync(string productId, string userId);
+        Task RemoveProductFromCartAsync(string productId, string userId);
+
 
         Task<bool> IsOwner(string productId, string userId);
     }

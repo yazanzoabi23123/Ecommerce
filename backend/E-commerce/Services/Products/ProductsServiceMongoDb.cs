@@ -1,5 +1,6 @@
 ﻿using E_commerce.InterFaces;
 using E_commerce.Models.Products;
+using E_commerce.Services.Data.Repository.Interfaces;
 using MongoDB.Bson;
 using MongoDB.Driver;
 
@@ -54,6 +55,7 @@ namespace E_commerce.Services.Products
             }
             return updatedProduct;
         }
+        
         public async Task DeleteProductAsync(string productId)
         {
             var result = await _products.DeleteOneAsync(c => c.Id == (productId));
@@ -79,6 +81,18 @@ namespace E_commerce.Services.Products
             {
                 throw new Exception("Product not found");
             }
+        }
+        public async Task RemoveProductFromCartAsync(string productId, string userId)
+        {
+            var product = await GetProductByIdAsync(productId);
+            
+            if (product.Cart.Contains(userId))
+            {
+             var  result = await _products.DeleteOneAsync(c => c.Id == (productId));
+              
+            }
+          
+
         }
 
         public async Task<bool> IsOwner(string productId, string userId)

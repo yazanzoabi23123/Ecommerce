@@ -15,12 +15,10 @@ import { useSearchParams } from "react-router-dom";
 
 export default function useProducts() {
   const [products, setProducts] = useState([]);
-  // const [filterProducts, setFilterProducts] = useState(null)
   const [isLoading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [product, setProduct] = useState(null);
-  // const [query,setQuery]=useState("");
-  // const [searchParams]=useSearchParams();
+
   useAxios();
   const snack = useSnack();
   const { user } = useUser();
@@ -107,8 +105,8 @@ export default function useProducts() {
     try {
       setLoading(true);
       const products = await getProducts();
-      // const AddedProducts = products.filter((product) => product.cart.includes(user.id));
-      const AddedProducts = products;
+       const AddedProducts = products.filter((product) => product.cart.includes(user.id));
+      //const AddedProducts = products;
       requestStatus(false, null, AddedProducts);
       return AddedProducts;
     } catch (error) {

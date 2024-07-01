@@ -72,16 +72,7 @@ const Main = ({product}) => {
    
     
   };
-  // useEffect(() =>{
-  //  const handleDeleteProduct = () => {
-  //     deleteProduct(idToDelete);
-  //     setDialog(false);
-  //     setIdToDelete(undefined);
-     
-      
-  //   };
-    
-  // }, [handleDeleteProduct])
+  
 
   if (isFetching) {
     return (
@@ -157,7 +148,6 @@ const Main = ({product}) => {
               sx={{ mx: "16px !important", color: theme.palette.text.primary }}
               className="myButton"
               aria-label="right aligned"
-             // onClick={()=> navigate(`${ROUTES.CREATE_PRODUCT}`)}
             >
               Add Product
             </ToggleButton>

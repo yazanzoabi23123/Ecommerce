@@ -4,8 +4,10 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
 import Grid from "@mui/material/Grid";
 import ROUTES from "../../routes/routesModel";
-import Form from "../../components/main/Forms/Form";
-import Input from "../../components/main/Forms/Input";
+import Form from "./Form";
+import Input from "./Input";
+import { useUser } from "../../Users/providers/UserProvider";
+
 
 
 const UserForm = ({
@@ -19,6 +21,7 @@ const UserForm = ({
   setData,
 }) => {
   return (
+
     <Form
       onSubmit={onSubmit}
       onReset={onReset}

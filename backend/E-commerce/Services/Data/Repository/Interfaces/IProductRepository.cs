@@ -14,5 +14,7 @@ namespace E_commerce.Services.Data.Repository.Interfaces
         Task<List<Product>> GetMyProductsAsync(string userId);
         Task<bool> DeleteProductFromCart(string userId, string productId);
         Task<bool> AddProductToCart(string userId, string productId);
+        Task<bool> RemoveProductFromCart(string userId, string productId);
+
     }
 }

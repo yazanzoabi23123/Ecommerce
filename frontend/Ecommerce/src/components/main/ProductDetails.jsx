@@ -21,7 +21,7 @@ const ProductDetails = () => {
   const {handleGetProduct,handleAddToCart} = useProducts();
   const [product, setProduct] = useState(null);
   const { id } = useParams();
-
+ 
   useEffect(() => {
     const loader = async () => {
       const product = await handleGetProduct(id);

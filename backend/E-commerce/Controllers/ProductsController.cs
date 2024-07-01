@@ -107,17 +107,20 @@ namespace E_commerce.Controllers
         }
 
         [HttpGet("my-Products/{userId}")]
+        [AllowAnonymous]
         public async Task<IActionResult> GetMyProducts()
         {
             string userId = HttpContext.User.FindFirstValue("Id") ?? "";
-            List<Product> cards = await _productsService.GetMyProductsAsync(userId);
-            return Ok(cards);
+            List<Product> products = await _productsService.GetMyProductsAsync(userId);
+            return Ok(products);
         }
 
-        [HttpPatch("{ProductId}/Cart/{userId}")]
+        [HttpPatch("{productId}")]
         [AllowAnonymous]
-        public async Task<IActionResult> AddProductToCart(string productId, string userId)
+        public async Task<IActionResult> AddProductToCart(string productId)
         {
+            string userId = HttpContext.User.FindFirstValue("Id") ?? "";
+
 
             try
             {
@@ -129,15 +132,23 @@ namespace E_commerce.Controllers
                 return NotFound(e.Message);
             }
         }
-        //public async Task<IActionResult> RemoveFromCart(string productId)
-        //{
-        //    UserProductCart? productCart = await _productsService.ProductsCart.FirstOrDefaultAsync(cart => cart.Product_Id == productId && cart.User_Id == userId);
+        [HttpDelete("{productId}")]
+        [AllowAnonymous]
+        public async Task<IActionResult> RemoveProductFromCart(string productId)
+        {
+            string userId = HttpContext.User.FindFirstValue("Id") ?? "";
 
-        //    if (productCart == null) return false;
-        //    _context.ProductsCart.Remove(productCart);
-        //    await _context.SaveChangesAsync();
-        //    return true;
-        //}
+
+            try
+            {
+                await _productsService.RemoveProductFromCartAsync(productId, userId);
+                return NoContent();
+            }
+            catch (Exception e)
+            {
+                return NotFound(e.Message);
+            }
+        }
 
     }
 }
