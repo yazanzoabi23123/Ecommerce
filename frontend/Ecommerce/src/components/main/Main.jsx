@@ -161,18 +161,18 @@ const Main = ({product}) => {
           flexWrap={"wrap"}
           justifyContent={"space-between"}
         >
-          <AnimatePresence>
+          {/* <AnimatePresence> */}
             {data.filter(product => {
               if (!q) {return true;}
               return product.title.toLowerCase().includes(q);
             }).map((item) => {
               return (
                 <Card
-                  component={motion.section}
+                  // component={motion.section}
                   layout
-                  initial={{ transform: "scale(0)" }}
-                  animate={{ transform: "scale(1)" }}
-                  transition={{ duration: 1.6, type: "spring", stiffness: 50 }}
+                  // initial={{ transform: "scale(0)" }}
+                  // animate={{ transform: "scale(1)" }}
+                  // transition={{ duration: 1.6, type: "spring", stiffness: 50 }}
                   key={item.id}
                   data={item}
                   sx={{
@@ -259,7 +259,7 @@ const Main = ({product}) => {
                 </Card>
               );
             })}
-          </AnimatePresence>
+          {/* </AnimatePresence> */}
         </Stack>
         <ProductDeleteDialog
          isDialogOpen={isDialogOpen}

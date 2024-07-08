@@ -1,42 +1,14 @@
 import { useEffect, useState } from "react";
-// import { useDispatch, useSelector } from "react-redux";
-// import {
-//   addToCart,
-//   clearCart,
-//   decreaseCart,
-//   getTotals,
-//   removeFromCart,
-// } from "./services/cartSlice";
-
 import { Link } from "react-router-dom";
 import useProducts from "./hooks/useProducts";
 import "./CartCss.css"
+import { useUser } from "../../Users/providers/UserProvider";
 export default function CartPage() {
-  // const cart = useSelector((state) => state.cart);
-  // const dispatch = useDispatch();
-
-  // useEffect(() => {
-  //   dispatch(getTotals());
-  // }, [cart, dispatch]);
-
-  // const handleAddToCart = (product) => {
-  //   dispatch(addToCart(product));
-  // };
-  // const handleDecreaseCart = (product) => {
-  //   dispatch(decreaseCart(product));
-  // };
-  // const handleRemoveFromCart = (product) => {
-  //   dispatch(removeFromCart(product));
-  // };
-  // const handleClearCart = () => {
-  //   dispatch(clearCart());
-  // };   const allProductsAPI = "https://localhost:7238/api/Products";
-
-  // const CartProducts = "https://localhost:7238/api/Products/{ProductId}/Cart/{userId}";
-  const [cartItems, setCartItems] = useState();
-  // const { data, error, isLoading,isFetching } = useGetproductByNameQuery(cartItems);
-  const {value, handleGetAddedProducts,handleDeleteProduct} = useProducts();
   
+  const [cartItems, setCartItems] = useState();
+  const {value, handleGetAddedProducts,handleDeleteProduct,handleRemoveProductFromCart} = useProducts();
+  
+  const { user } = useUser();
 
   useEffect(() => {
     const loader = async () => {
@@ -94,7 +66,7 @@ export default function CartPage() {
                   <div>
                     <h4>{cartItem.title}</h4>
                     <p>{cartItem.desc}</p>
-                    <button onClick={() => handleDeleteProduct(cartItem)}>
+                    <button onClick={() => handleRemoveProductFromCart(cartItem.id,user.id)}>
                       Remove
                     </button>
                   </div>
@@ -114,9 +86,7 @@ export default function CartPage() {
             ))}
         </div>
         <div className="cart-summary">
-          <button className="clear-btn" onClick={() => handleDeleteProduct()}>
-            Clear Cart
-          </button>
+         
           <div className="cart-checkout">
             <div className="subtotal">
               <span>Subtotal</span>

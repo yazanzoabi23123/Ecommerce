@@ -17,11 +17,11 @@ import { useParams } from "react-router-dom";
 import React from "react";
 import useProducts from "../main/hooks/useProducts";
 import { getProduct } from "./services/productApiService";
+
 const ProductDetails = () => {
   const {handleGetProduct,handleAddToCart} = useProducts();
   const [product, setProduct] = useState(null);
   const { id } = useParams();
- 
   useEffect(() => {
     const loader = async () => {
       const product = await handleGetProduct(id);

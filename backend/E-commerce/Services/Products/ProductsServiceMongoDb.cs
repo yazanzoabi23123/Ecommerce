@@ -84,14 +84,13 @@ namespace E_commerce.Services.Products
         }
         public async Task RemoveProductFromCartAsync(string productId, string userId)
         {
-            var product = await GetProductByIdAsync(productId);
-            
-            if (product.Cart.Contains(userId))
+            var update = Builders<Product>.Update.Pull(c => c.Cart, userId);
+            var result = await _products.UpdateOneAsync(c => c.Id == (productId), update);
+            if(result.MatchedCount > 0)
             {
-             var  result = await _products.DeleteOneAsync(c => c.Id == (productId));
-              
+                throw new Exception("Product not found");
             }
-          
+
 
         }
 

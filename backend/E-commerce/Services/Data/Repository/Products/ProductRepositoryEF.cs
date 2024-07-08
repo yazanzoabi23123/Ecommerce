@@ -87,6 +87,16 @@ namespace E_commerce.Services.Data.Repository.Products
             return true;
 
         }
+        public async Task<bool> RemoveProductFromCart(string userId, string productId)
+        {
+            UserProductCart? productCart = await _context.ProductsCart.FirstOrDefaultAsync(cart => cart.Product_Id == productId && cart.User_Id == userId);
+
+            if (productCart == null) return false;
+            _context.ProductsCart.Remove(productCart);
+            await _context.SaveChangesAsync();
+            return true;
+
+        }
         public async Task<bool> AddProductToCart(string userId, string productId)
         {
             UserProductCart? productCart = await _context.ProductsCart.FirstOrDefaultAsync(cart => cart.Product_Id == productId && cart.User_Id == userId);

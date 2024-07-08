@@ -65,7 +65,12 @@ namespace E_commerce.Services.Data.Repository.Products
             var result = await _products.UpdateOneAsync(c => c.Id == (productId), update);
             return (result.MatchedCount > 0);
         }
-
+        public async Task<bool> RemoveProductFromCart(string userId, string productId)
+        {
+            var update = Builders<Product>.Update.Pull(c => c.Cart, userId);
+            var result = await _products.UpdateOneAsync(c => c.Id == (productId), update);
+            return (result.MatchedCount > 0);
+        }
         public async Task<bool> AddProductToCart(string userId, string productId)
         {
 

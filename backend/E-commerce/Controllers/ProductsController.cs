@@ -66,11 +66,11 @@ namespace E_commerce.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateProduct(string id, [FromBody] Product updatedProduct)
         {
-            //bool.TryParse(HttpContext.User.FindFirstValue("isAdmin"), out bool isAdmin);
-            //if (!await _productsService.IsOwner(id, HttpContext.User.FindFirstValue("id") ?? "") && !isAdmin)
-            //{
-            //    return Unauthorized("You can only delete your own cards");
-            //}
+            bool.TryParse(HttpContext.User.FindFirstValue("isAdmin"), out bool isAdmin);
+            if (!await _productsService.IsOwner(id, HttpContext.User.FindFirstValue("id") ?? "") && !isAdmin)
+            {
+                return Unauthorized("You can only delete your own cards");
+            }
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
@@ -90,11 +90,11 @@ namespace E_commerce.Controllers
         [AllowAnonymous]
         public async Task<IActionResult> DeleteProduct(string id)
         {
-            //bool.TryParse(HttpContext.User.FindFirstValue("isAdmin"), out bool isAdmin);
-            //if (!await _productsService.IsOwner(id, HttpContext.User.FindFirstValue("id") ?? "") && !isAdmin)
-            //{
-            //    return Unauthorized("You can only delete your own products");
-            //}
+            bool.TryParse(HttpContext.User.FindFirstValue("isAdmin"), out bool isAdmin);
+            if (!await _productsService.IsOwner(id, HttpContext.User.FindFirstValue("id") ?? "") && !isAdmin)
+            {
+                return Unauthorized("You can only delete your own products");
+            }
             try
             {
                 await _productsService.DeleteProductAsync(id);
@@ -121,7 +121,6 @@ namespace E_commerce.Controllers
         {
             string userId = HttpContext.User.FindFirstValue("Id") ?? "";
 
-
             try
             {
                 await _productsService.AddProductToCartAsync(productId, userId);
@@ -132,12 +131,10 @@ namespace E_commerce.Controllers
                 return NotFound(e.Message);
             }
         }
-        [HttpDelete("{productId}")]
+        [HttpDelete("{productId}/RemoveProductFromCart/{userId}")]
         [AllowAnonymous]
-        public async Task<IActionResult> RemoveProductFromCart(string productId)
+        public async Task<IActionResult> RemoveProductFromCart(string productId,string userId)
         {
-            string userId = HttpContext.User.FindFirstValue("Id") ?? "";
-
 
             try
             {

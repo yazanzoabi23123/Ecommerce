@@ -9,7 +9,7 @@ namespace E_commerce.Models.Users
 
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
-        public string Id { get; set; } = ObjectId.GenerateNewId().ToString();
+        public string Id { get; set; } = Guid.NewGuid().ToString();
         public Name Name { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }

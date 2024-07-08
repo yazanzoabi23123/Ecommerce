@@ -13,6 +13,7 @@ using System.Text;
 using E_commerce.Auth;
 using DotNetCardsServer.Services.Data;
 using E_commerce.Services.Users;
+using Microsoft.AspNetCore.Server.IISIntegration;
 
 namespace E_commerce
 {
@@ -66,7 +67,6 @@ namespace E_commerce
                 options.AddPolicy("MustBeAdmin", policy => policy.RequireClaim("type", "Admin"));
                 options.AddPolicy("MustBeBusinessOrAdmin", policy => policy.RequireClaim("type", "Business", "Admin"));
             });
-
             builder.Services.AddScoped<IUserRepository, UserRepositoryMongoDb>();
             builder.Services.AddScoped<IProductRepository, ProductRepositoryMongoDb>();
             builder.Services.AddScoped<IProductService, ProductsService>();
@@ -82,6 +82,7 @@ namespace E_commerce
             app.UseCors("myCorsPolicy");
             app.UseHttpsRedirection();
             app.UseMiddleware<ReqResLoggerMiddleware>();
+
             app.UseAuthorization();
 
 

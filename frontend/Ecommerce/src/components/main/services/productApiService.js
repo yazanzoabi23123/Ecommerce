@@ -1,6 +1,8 @@
 import axios from "axios";
 const apiUrl = process.env.REACT_APP_API_URL || "https://localhost:7238/api";
 console.log(apiUrl);
+//const { user } = useUser();
+
 export const getProducts = async () => {
   try {
     const response = await axios.get(`${apiUrl}/products`);
@@ -64,6 +66,15 @@ export const createProduct = async (product) => {
 export const  AddProductToCart = async (productId) => {
   try {
     const { data } = await axios.patch(`${apiUrl}/products/${productId}`);
+    return data;
+  } catch (error) {
+    return Promise.reject(error.message);
+  };
+
+};
+export const RemoveProductFromCart = async (productId,userId) => {
+  try {
+    const { data } = await axios.delete(`${apiUrl}/products/${productId}/removeproductfromcart/${userId}`);
     return data;
   } catch (error) {
     return Promise.reject(error.message);

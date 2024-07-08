@@ -4,6 +4,7 @@ import { useSnack } from "../../../Users/providers/SnackbarProvider.jsx";
 import { useUser } from "../../../Users/providers/UserProvider.jsx";
 import {
   AddProductToCart,
+  RemoveProductFromCart,
   createProduct,
   deleteProduct,
   editProduct,
@@ -100,6 +101,15 @@ export default function useProducts() {
       requestStatus(false, error, null);
     }
   }, []);
+  const handleRemoveProductFromCart = useCallback(async (productId,userId) => {
+    try {
+      const product = await RemoveProductFromCart(productId,userId);
+      requestStatus(false, null, products, product);
+      snack("success", "The Product has been deleted from Cart");
+    } catch (error) {
+      requestStatus(false, error, null);
+    }
+  }, []);
 
   const handleGetAddedProducts = useCallback(async () => {
     try {
@@ -139,5 +149,6 @@ export default function useProducts() {
     handleCreateProduct,
     handleGetAddedProducts,
     handleAddToCart,
+    handleRemoveProductFromCart
   };
 }

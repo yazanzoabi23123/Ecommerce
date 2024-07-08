@@ -85,13 +85,13 @@ namespace E_commerce.Services.Products
                 throw new Exception("Product not found");
             }
         }
-        public async Task RemoveProductFromCart(string prductId, string userId)
+        public async Task RemoveProductFromCartAsync(string prductId, string userId)
         {
             var product = await _productRepository.GetOneProductAsync(prductId);
             bool result=false;
             if (product.Cart.Contains(userId))
             {
-               result = await _productRepository.DeleteProductFromCart(userId, prductId);
+               result = await _productRepository.RemoveProductFromCart(userId, prductId);
             }
             if (!result)
             {
