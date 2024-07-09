@@ -38,7 +38,7 @@ import { useSnack } from "../../Users/providers/SnackbarProvider.jsx";
 
 const Main = ({product}) => {
  
-  const {user} = useUser
+  const {user} = useUser();
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
   const [isDialogOpen, setDialog] = useState(false);
@@ -143,6 +143,7 @@ const Main = ({product}) => {
               All Products
             </ToggleButton>
             
+            {user?.isAdmin ?  (
             <NavBarLink to={ROUTES.CREATE_PRODUCT}>
             <ToggleButton
               sx={{ mx: "16px !important", color: theme.palette.text.primary }}
@@ -152,7 +153,8 @@ const Main = ({product}) => {
               Add Product
             </ToggleButton>
             </NavBarLink>
-           
+          
+          ): null}
           </ToggleButtonGroup>
         </Stack>
 
@@ -161,18 +163,14 @@ const Main = ({product}) => {
           flexWrap={"wrap"}
           justifyContent={"space-between"}
         >
-          {/* <AnimatePresence> */}
+          
             {data.filter(product => {
               if (!q) {return true;}
               return product.title.toLowerCase().includes(q);
             }).map((item) => {
               return (
                 <Card
-                  // component={motion.section}
                   layout
-                  // initial={{ transform: "scale(0)" }}
-                  // animate={{ transform: "scale(1)" }}
-                  // transition={{ duration: 1.6, type: "spring", stiffness: 50 }}
                   key={item.id}
                   data={item}
                   sx={{
@@ -217,6 +215,7 @@ const Main = ({product}) => {
                   </CardContent>
 
                   <CardActions sx={{ justifyContent: "space-between" }}>
+                   {user && (
                     <Button
                       onClick={() => {
                         // handleClickOpen();
@@ -233,6 +232,9 @@ const Main = ({product}) => {
                       />
                       
                     </Button>
+                    )}
+                     {user?.isAdmin || user ? (
+                      <>
                     <IconButton
                 aria-label="Delete Product"
                 onClick={() => {
@@ -248,7 +250,10 @@ const Main = ({product}) => {
                 onClick={() => navigate(`${ROUTES.EDIT_PRODUCT}/${item.id}`)}
               >
                 <ModeEditIcon />
+                
               </IconButton>
+              </>
+               ): null}
                     <Rating
                       precision={0.1}
                       name="read-only"
@@ -259,7 +264,7 @@ const Main = ({product}) => {
                 </Card>
               );
             })}
-          {/* </AnimatePresence> */}
+         
         </Stack>
         <ProductDeleteDialog
          isDialogOpen={isDialogOpen}

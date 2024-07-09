@@ -140,37 +140,7 @@ const Header2 = () => {
         />
 
         <div>
-          <List
-            component="nav"
-            aria-label="Device settings"
-            sx={{
-              // @ts-ignore
-              bgcolor: theme.palette.myColor.main,
-              borderBottomRightRadius: 22,
-              borderTopRightRadius: 22,
-              p: "0",
-            }}
-          >
-            <ListItem
-              id="lock-button"
-              aria-haspopup="listbox"
-              aria-controls="lock-menu"
-              aria-label="when device is locked"
-              aria-expanded={open ? "true" : undefined}
-              onClick={handleClickListItem}
-            >
-              <ListItemText
-                // className="border"
-                sx={{
-                  width: 93,
-                  textAlign: "center",
-                  "&:hover": { cursor: "pointer" },
-                }}
-                secondary={options[selectedIndex]}
-              />
-              <ExpandMore sx={{ fontSize: "16px" }} />
-            </ListItem>
-          </List>
+          
           <Menu
             id="lock-menu"
             anchorEl={anchorEl}
