@@ -1,4 +1,3 @@
-Write in Terminal npm run dev for running the project
 npm install framer-motion
 npm i swiper
 npm install joi
