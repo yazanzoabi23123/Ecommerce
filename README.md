@@ -68,10 +68,10 @@ OR you can make a register before her: http://localhost:5173/signup
 
 after login as a regular user you can visit:
 
-• profile: her you can see your personal data.
-• Products: her you can see all the products which the Admin has been added to the site, so you can buy suitable quantity from each product.
-• My Orders: her you can see your orders, also you can see the status of the order if has been approved or rejected by the admin....
-• Cart: her you can see your Cart, also you can delete product or place order, so the admin can see this and he will update the status of the order per regular user.
+● profile: her you can see your personal data.
+● Products: her you can see all the products which the Admin has been added to the site, so you can buy suitable quantity from each product.
+● My Orders: her you can see your orders, also you can see the status of the order if has been approved or rejected by the admin....
+● Cart: her you can see your Cart, also you can delete product or place order, so the admin can see this and he will update the status of the order per regular user.
 second, you must login as an admin so you can add medicine or supplements with image, edit or delete medicines, approve user's orders status and more... To login as an admin you must write:
 
 email: yoni@gmail.com
@@ -80,10 +80,10 @@ password: ABc123456789!
 
 after login as an admin you can visit:
 
-• Medicine Master: her you can add, edit, delete supplements and medicines for your site.
-• User List: her you can see User's List, also you can see all the users whith there Status.
-• Order List: her you can see order List, also you can update the status of the regular user's order to approved or rejected....
-• Products: her you can see all the Products and you can also use filter or search to look for a specific product.
+● Medicine Master: her you can add, edit, delete supplements and medicines for your site.
+● User List: her you can see User's List, also you can see all the users whith there Status.
+● Order List: her you can see order List, also you can update the status of the regular user's order to approved or rejected....
+● Products: her you can see all the Products and you can also use filter or search to look for a specific product.
 
 
 License
