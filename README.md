@@ -59,6 +59,7 @@ New User? Go to http://localhost:3000/registration and Enter your personal infor
 Already have a user? Go to http://localhost:3000/login and enter your user and password.
 
 second of all, you should login as a regular user. To login as a regular user you must write:
+
 email: yoni145023@gmail.com
 password: ABc123!
 
@@ -71,8 +72,10 @@ Products: her you can see all the products which the Admin has been added to the
 My Orders: her you can see your orders, also you can see the status of the order if has been approved or rejected by the admin....
 Cart: her you can see your Cart, also you can delete product or place order, so the admin can see this and he will update the status of the order per regular user.
 second, you must login as an admin so you can add medicine or supplements with image, edit or delete medicines, approve user's orders status and more... To login as an admin you must write:
+
 email: yoni@gmail.com
 password: ABc123456789!
+
 after login as an admin you can visit:
 
 Medicine Master: her you can add, edit, delete supplements and medicines for your site.
