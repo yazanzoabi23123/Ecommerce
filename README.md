@@ -61,6 +61,7 @@ Already have a user? Go to http://localhost:3000/login and enter your user and p
 second of all, you should login as a regular user. To login as a regular user you must write:
 
 email: yoni145023@gmail.com
+
 password: ABc123!
 
 OR you can make a register before her: http://localhost:5173/signup
@@ -74,6 +75,7 @@ Cart: her you can see your Cart, also you can delete product or place order, so 
 second, you must login as an admin so you can add medicine or supplements with image, edit or delete medicines, approve user's orders status and more... To login as an admin you must write:
 
 email: yoni@gmail.com
+
 password: ABc123456789!
 
 after login as an admin you can visit:
