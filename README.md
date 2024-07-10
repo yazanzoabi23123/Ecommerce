@@ -46,6 +46,8 @@ First of all, you should install all these libraries :
 8) npm install @reduxjs/toolkit
 9) npm install @mui/icons-material @mui/material @emotion/styled @emotion/react
 10) npm install @mui/material @emotion/react @emotion/styled
+11) npm install sweetalert --save
+
 
 npm run dev
 
