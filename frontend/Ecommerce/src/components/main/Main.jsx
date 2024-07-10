@@ -143,7 +143,7 @@ const Main = ({product}) => {
               All Products
             </ToggleButton>
             
-            {user?.isAdmin ?  (
+            {user.isAdmin == true &&  (
             <NavBarLink to={ROUTES.CREATE_PRODUCT}>
             <ToggleButton
               sx={{ mx: "16px !important", color: theme.palette.text.primary }}
@@ -154,7 +154,7 @@ const Main = ({product}) => {
             </ToggleButton>
             </NavBarLink>
           
-          ): null}
+          )}
           </ToggleButtonGroup>
         </Stack>
 
@@ -233,7 +233,7 @@ const Main = ({product}) => {
                       
                     </Button>
                     )}
-                     {user?.isAdmin || user ? (
+                     {user.isAdmin == true &&  (
                       <>
                     <IconButton
                 aria-label="Delete Product"
@@ -253,7 +253,7 @@ const Main = ({product}) => {
                 
               </IconButton>
               </>
-               ): null}
+               ) }
                     <Rating
                       precision={0.1}
                       name="read-only"
