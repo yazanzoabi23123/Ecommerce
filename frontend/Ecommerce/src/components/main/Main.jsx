@@ -69,8 +69,7 @@ const Main = ({product}) => {
     snack("success", "The Product has been Deleted Successfully");
 
     
-   
-    
+
   };
   
 
@@ -143,7 +142,7 @@ const Main = ({product}) => {
               All Products
             </ToggleButton>
             
-            {user.isAdmin == true &&  (
+            {user?.isAdmin === 'True' &&  (
             <NavBarLink to={ROUTES.CREATE_PRODUCT}>
             <ToggleButton
               sx={{ mx: "16px !important", color: theme.palette.text.primary }}
@@ -233,7 +232,7 @@ const Main = ({product}) => {
                       
                     </Button>
                     )}
-                     {user.isAdmin == true &&  (
+                     {user?.isAdmin === 'True' &&  (
                       <>
                     <IconButton
                 aria-label="Delete Product"
@@ -253,7 +252,7 @@ const Main = ({product}) => {
                 
               </IconButton>
               </>
-               ) }
+               )}
                     <Rating
                       precision={0.1}
                       name="read-only"

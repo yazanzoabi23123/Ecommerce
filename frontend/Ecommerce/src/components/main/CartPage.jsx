@@ -3,6 +3,9 @@ import { Link } from "react-router-dom";
 import useProducts from "./hooks/useProducts";
 import "./CartCss.css"
 import { useUser } from "../../Users/providers/UserProvider";
+import swal from 'sweetalert'
+import { color } from "framer-motion";
+
 export default function CartPage() {
   
   const [cartItems, setCartItems] = useState();
@@ -22,6 +25,15 @@ export default function CartPage() {
     await handleDeleteProduct(id);
      await handleGetAddedProducts();
   };
+  const notify = () => swal(
+    {
+      title: 'Succeded',
+      text: 'Your order is waiting for the admin to ship ',
+      icon: 'success',
+      button: {text:'OK',className: "NotifyButton",
+      },
+    }
+  )
   
   return (
     
@@ -93,7 +105,7 @@ export default function CartPage() {
               {/* <span className="amount">${cartTotalAmount}</span> */}
             </div>
             <p>Taxes and shipping calculated at checkout</p>
-            <button>Check out</button>
+            <button onClick={notify}>Check out</button>
             <div className="continue-shopping">
               <Link to="/">
                 <svg

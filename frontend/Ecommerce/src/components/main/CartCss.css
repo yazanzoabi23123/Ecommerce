@@ -141,3 +141,7 @@
     flex-direction: column;
     align-items: center;
   }
+  .NotifyButton{
+    background-color: #4b70e2;
+    color: #f9f9f9;
+  }
