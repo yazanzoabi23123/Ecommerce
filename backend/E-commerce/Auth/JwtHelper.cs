@@ -22,6 +22,15 @@ namespace E_commerce.Auth
                 new Claim("isAdmin",user.IsAdmin.ToString()),
                 new Claim("isBusiness",user.IsBusiness.ToString()),
                 new Claim("first",user.Name.First.ToString()),
+                new Claim("last",user.Name.Last.ToString()),
+                new Claim("email",user.Email.ToString()),
+                new Claim("phone",user.Phone.ToString()),
+                new Claim("state",user.Address.State.ToString()),
+                new Claim("country",user.Address.Country.ToString()),
+                new Claim("city",user.Address.City.ToString()),
+                new Claim("housenumber",user.Address.HouseNumber.ToString()),
+                new Claim("zip",user.Address.Zip.ToString()),
+                new Claim("street",user.Address.Street.ToString()),
                 new Claim ("type",user.IsAdmin ? "Admin":user.IsBusiness ? "Business":"User")
             };
 
