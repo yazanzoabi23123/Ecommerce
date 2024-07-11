@@ -8,7 +8,7 @@ Features
 4) An Order list that will show your orders which you have purchased.
 5) Pages to manage Allproduct by CRUD actions and buying options by add to Cart.
 6) Search Bar and filter option in products page which help you to find the specific product you're looking for.
-
+7) you can update your profile details.
 
 Installation
 1. install git on your computer from the link https://git-scm.com/downloads
