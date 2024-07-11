@@ -3,17 +3,7 @@ import { getUserData } from "../services/usersApiService";
 import { useUser } from "../providers/UserProvider";
 
 export default function Profile() {
-  // const getUser = async () => {
-  //   try {
-  //     const userData = await getUserData();
-  //     console.log(userData);
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
-  // useEffect(() => {
-  //   getUser();
-  // }, []);
+  
   const { user } = useUser();
 
   return (

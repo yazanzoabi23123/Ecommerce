@@ -9,6 +9,7 @@ import Main2 from "../components/main/Main2";
 import CreatProduct from "../components/main/CreatProduct";
 import EditProduct from "../components/main/EditProduct";
 import Profile from "../Users/pages/Profile";
+import EditUser from "../Users/pages/EditUser";
 
 export default function Router(){
 return(
@@ -21,6 +22,7 @@ return(
       <Route path={ROUTES.CREATE_PRODUCT} element={<CreatProduct/>} />
       <Route path={`${ROUTES.EDIT_PRODUCT}/:id`} element={<EditProduct/>} />
       <Route path={ROUTES.USER_PROFILE} element={<Profile />} />
+      <Route path={ROUTES.EDIT_USER} element={<EditUser />} />
 </Routes> 
 );
 

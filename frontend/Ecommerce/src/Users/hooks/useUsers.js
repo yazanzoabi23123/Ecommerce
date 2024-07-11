@@ -1,5 +1,5 @@
 import { useState, useCallback, useMemo } from "react";
-import { getUserData, login, signup } from "../services/usersApiService";
+import { getUserData, login, signup , EditUser} from "../services/usersApiService";
 import {
   getUser,
   removeToken,
@@ -10,6 +10,7 @@ import { useNavigate } from "react-router-dom";
 import ROUTES from "../../routes/routesModel";
 import normalizeUser from "../helpers/normalization/normalizeUser";
 import useAxios from "./useAxios";
+import { useSnack } from "../../Users/providers/SnackbarProvider";
 
 const useUsers = () => {
   const [isLoading, setLoading] = useState(true);
@@ -17,6 +18,7 @@ const useUsers = () => {
 
   const navigate = useNavigate();
   const { user, setUser, setToken } = useUser();
+  const snack = useSnack();
 
   useAxios();
 
@@ -68,7 +70,21 @@ const useUsers = () => {
   },
     [requestStatus, handleLogin]
   );
+ const handleEditUser = useCallback(
+      async(UpdateUser)=>{
+        try{
+          const normalizedUser = normalizeUser(UpdateUser);
+        await EditUser(normalizedUser,user.id);
+        snack("success", "The User has been Updated");
 
+        }
+        catch (error) {
+          requestStatus(false, error, null);
+        }
+      },
+      []
+    );
+ 
 
   const value = useMemo(
     () => ({ isLoading, error, user }),
@@ -80,7 +96,7 @@ const useUsers = () => {
     handleLogin,
     handleLogout,
     handleSignup,
-    
+    handleEditUser,
   };
 };
 

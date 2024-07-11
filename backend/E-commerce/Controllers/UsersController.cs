@@ -82,7 +82,7 @@ namespace E_commerce.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> Put(string id, [FromBody] User updatedUser)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 return BadRequest("validation");
             }

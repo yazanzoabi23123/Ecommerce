@@ -70,11 +70,13 @@ const Menu = ({ isOpen, anchorEl, onClose }) => {
               navigateTo={ROUTES.USER_PROFILE}
               onClick={onClose}
             />
+            <NavBarLink to={ROUTES.EDIT_USER}>
             <MenuLink
               text="edit account"
               navigateTo={ROUTES.EDIT_USER}
               onClick={onClose}
             />
+            </NavBarLink>
             <MenuItem onClick={onLogout}>Logout</MenuItem>
           </>
         )}

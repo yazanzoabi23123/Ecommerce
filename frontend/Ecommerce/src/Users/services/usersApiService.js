@@ -23,7 +23,14 @@ export const signup = async (normalizedUser) => {
     return Promise.reject(error.message);
   }
 };
-
+export const EditUser = async (normalizedUser,id) => {
+  try {
+    const { data } = await axios.put(`${apiUrl}/users/${id}`, normalizedUser);
+    return data;
+  } catch (error) {
+    return Promise.reject(error.message);
+  }
+};
 export const getUserData = async () => {
   try {
     const { data } = await axios.get(`${apiUrl}/user`);
