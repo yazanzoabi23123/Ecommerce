@@ -1,5 +1,5 @@
 Yazan Ecommerce Front/Back
-This is a simple fullstack project: React as afrontend and ASP.NET API as backend which connected to MongoDB. this project allows you to create, Edit Delete and display products. It provides a user-friendly interface for entering order information and generates a visually appealing product cart.
+This is a simple fullstack project: React as a frontend and ASP.NET API as backend which connected to MongoDB. this project allows you to create, Edit Delete and display products. It provides a user-friendly interface for entering order information and generates a visually appealing product cart.
 
 Features
 1) Input fields for FirstName,LastName, Email, Password.
