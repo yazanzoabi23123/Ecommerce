@@ -17,6 +17,8 @@ for backend side
 Open a new VS (for backend side) in a new folder
 at the sidebar above click on Git, then Clone repository.
 
+for changing the default connection go to appsettings.json file at backend.
+
 pick a location folder and then paste the path.
 
 
