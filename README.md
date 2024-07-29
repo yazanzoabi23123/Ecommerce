@@ -1,5 +1,5 @@
 Yazan Ecommerce Front/Back
-This is a simple fullstack project: React as afrontend and ASP.NET API as backend which connected to MongoDB. this project allows you to create, Edit Delete and display products. It provides a user-friendly interface for entering order information and generates a visually appealing product cart.
+This is a simple fullstack project: React as a frontend and ASP.NET API as backend which connected to MongoDB. this project allows you to create, Edit Delete and display products. It provides a user-friendly interface for entering order information and generates a visually appealing product cart.
 
 Features
 1) Input fields for FirstName,LastName, Email, Password.
@@ -8,7 +8,7 @@ Features
 4) An Order list that will show your orders which you have purchased.
 5) Pages to manage Allproduct by CRUD actions and buying options by add to Cart.
 6) Search Bar and filter option in products page which help you to find the specific product you're looking for.
-
+7) you can update your profile details.
 
 Installation
 1. install git on your computer from the link https://git-scm.com/downloads
@@ -16,6 +16,8 @@ Installation
 for backend side
 Open a new VS (for backend side) in a new folder
 at the sidebar above click on Git, then Clone repository.
+
+for changing the default connection go to appsettings.json file at backend.
 
 pick a location folder and then paste the path.
 
