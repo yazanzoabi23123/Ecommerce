@@ -5,6 +5,7 @@ import "./CartCss.css"
 import { useUser } from "../../Users/providers/UserProvider";
 import swal from 'sweetalert'
 import { color } from "framer-motion";
+import Header2 from "../../components/header/Header2";
 
 export default function CartPage() {
   

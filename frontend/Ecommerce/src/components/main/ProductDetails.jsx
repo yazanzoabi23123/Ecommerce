@@ -44,6 +44,7 @@ const ProductDetails = () => {
           alignItems: "center",
           gap: 2.5,
           flexDirection: { xs: "column", sm: "row" },
+          marginBottom:"12%"
         }}
       >
         <Box sx={{ display: "flex" }}>

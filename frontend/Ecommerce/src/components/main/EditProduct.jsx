@@ -31,10 +31,12 @@ export default function EditProduct() {
   return (
     <Container
     sx={{
-      paddingTop: 8,
+      paddingTop: 5 ,
       display: "flex",
       justifyContent: "center",
       alignItems: "center",
+      marginBottom:12,
+      
     }}
   >
     <ProductForm

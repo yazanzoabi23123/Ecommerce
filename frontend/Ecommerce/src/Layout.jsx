@@ -1,3 +1,4 @@
+import Hero from "./components/hero/Hero";
 import Footer from "./components/footer/footer";
 import Header1 from "./components/header/Header1";
 import Header2 from "./components/header/Header2";
@@ -12,6 +13,7 @@ export default function Layout({ children }) {
       <Header1 />
       <Header2/>
       <Header3 />
+      <Hero/>
       <Main>{children}</Main>
       <Footer />
     </>

@@ -154,8 +154,6 @@ const Header3 = () => {
         <Stack gap={4} direction={"row"} alignItems={"center"}>
           
          
-          <Links title={"User Account"} />
-          <Links title={"Vendor Account"} />
         </Stack>
       )}
 

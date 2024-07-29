@@ -25,8 +25,9 @@ function App() {
             theme.palette.bg.main
           }
         >
+       
            <Router/> 
-            
+          
         </Box>
         
         

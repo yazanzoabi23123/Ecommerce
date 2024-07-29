@@ -15,7 +15,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     <BrowserRouter>
     <SnackbarProvider>
     <UserProvider>
-    <Provider store={store}>     
+    <Provider store={store}>  
     <App/>
      </Provider>
     </UserProvider>

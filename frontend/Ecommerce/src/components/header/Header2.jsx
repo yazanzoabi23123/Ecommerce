@@ -111,7 +111,8 @@ const Header2 = () => {
   const navigate = useNavigate();
 
   return (
-    <Container sx={{ my: 3, display: "flex", justifyContent: "space-between" }}>
+    
+    <Container sx={{ my: 3, display: "flex", justifyContent: "space-between" ,bottom: 0, left: 0, right: 0  }}>
       <NavBarLink to={ROUTES.ROOT}>
         <Stack alignItems={"center"}>
           <ShoppingCartOutlined />

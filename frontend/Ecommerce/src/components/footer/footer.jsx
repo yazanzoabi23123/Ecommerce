@@ -9,6 +9,7 @@ const Footer = () => {
         py: 1.3,
         borderTopLeftRadius: 8,
         borderTopRightRadius: 8,
+        bottom: 0, left: 0, right: 0 
       }}
     >
       <Typography

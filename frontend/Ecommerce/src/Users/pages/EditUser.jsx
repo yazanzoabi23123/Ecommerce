@@ -1,13 +1,10 @@
-import React from 'react'
 import useUsers from '../../Users/hooks/useUsers';
 import useForm from '../../Users/hooks/useForm';
 import { Container } from '@mui/material';
 import UserForm from '../../Users/components/UserForm';
 import initialSignupForm from '../../Users/helpers/initialForms/initialSignupForm';
 import signupSchema from '../../Users/models/signupSchema';
-import { useUser } from '../../Users/providers/UserProvider';
-import ROUTES from '../../routes/routesModel';
-import { Navigate, useNavigate } from 'react-router';
+
 
 export default function EditUser() {
     const { handleEditUser } = useUsers();
@@ -21,7 +18,7 @@ export default function EditUser() {
   return (
     <Container
     sx={{
-      paddingTop: 8,
+      paddingTop: 1,
       display: "flex",
       justifyContent: "center",
       alignItems: "center",
