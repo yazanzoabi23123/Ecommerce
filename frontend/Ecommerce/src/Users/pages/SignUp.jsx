@@ -48,7 +48,7 @@ export default function SignnUp() {
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
-          marginBottom:17
+          marginBottom:21
         }}
       >
         <Form

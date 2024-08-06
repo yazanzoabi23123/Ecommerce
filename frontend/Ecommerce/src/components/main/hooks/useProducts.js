@@ -13,6 +13,7 @@ import {
   getMyProducts,
 } from "../services/productApiService.js";
 import { useSearchParams } from "react-router-dom";
+import { render } from "react-dom";
 
 export default function useProducts() {
   const [products, setProducts] = useState([]);

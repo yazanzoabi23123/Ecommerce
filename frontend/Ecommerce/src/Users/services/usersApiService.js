@@ -2,6 +2,7 @@ import axios from "axios";
 
 const apiUrl = process.env.REACT_APP_API_URL || "https://localhost:7238/api";
 
+
 export const login = async (user) => {
   
   try {
@@ -11,7 +12,7 @@ export const login = async (user) => {
     return data;
   } catch (error) {
     console.log(error);
-    return Promise.reject(error.message);
+    return Promise.reject(error.message)
   }
 };
 

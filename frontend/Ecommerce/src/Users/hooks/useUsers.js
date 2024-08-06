@@ -15,6 +15,7 @@ import { useSnack } from "../../Users/providers/SnackbarProvider";
 const useUsers = () => {
   const [isLoading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [errorMessage, setErrorMessage] = useState('');
 
   const navigate = useNavigate();
   const { user, setUser, setToken } = useUser();
@@ -43,6 +44,7 @@ const useUsers = () => {
         navigate(ROUTES.ROOT);
       } catch (error) {
         requestStatus(false, error, null);
+
       }
     },
     []

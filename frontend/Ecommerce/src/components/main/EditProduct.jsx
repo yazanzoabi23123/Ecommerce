@@ -35,7 +35,7 @@ export default function EditProduct() {
       display: "flex",
       justifyContent: "center",
       alignItems: "center",
-      marginBottom:12,
+      marginBottom:16,
       
     }}
   >

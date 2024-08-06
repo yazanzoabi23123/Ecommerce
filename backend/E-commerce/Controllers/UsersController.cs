@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Authentication;
 using System.Security.Claims;
-using AuthenticationException = E_commerce.Exceptions.AuthenticationException;
+using Microsoft.AspNetCore.Authorization;
 
 namespace E_commerce.Controllers
 {
@@ -119,7 +119,8 @@ namespace E_commerce.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return BadRequest("validation");
+                return BadRequest(ModelState);
+
             }
             try
             {
@@ -127,13 +128,14 @@ namespace E_commerce.Controllers
                 string token = JwtHelper.GenerateAuthToken(u);
                 return Ok(token);
             }
-            catch (AuthenticationException ex)
+            catch (Exceptions.AuthenticationException ex)
             {
-                return Unauthorized("Email or Password wrong");
+                
+                return Unauthorized(ex.Message);
 
             }
 
-
+            
         }
     }
 }

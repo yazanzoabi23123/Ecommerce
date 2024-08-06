@@ -17,14 +17,16 @@ export default function useAxios() {
     const responseInterceptor = axios.interceptors.response.use(
       null,
       (error) => {
-        if (error.message) snack("error", error.message);
+        if (error.response.status === 401) {
+          snack("error", "Email or Password are wrong");
+        }
         return Promise.reject(error);
       }
     );
 
     return () => {
       axios.interceptors.request.eject(requestInterceptor);
-      axios.interceptors.response.eject(responseInterceptor);
+       axios.interceptors.response.eject(responseInterceptor);
     };
   }, [snack, token]);
 }

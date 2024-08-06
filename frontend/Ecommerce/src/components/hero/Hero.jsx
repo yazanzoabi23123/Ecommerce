@@ -18,7 +18,7 @@ import "swiper/css/pagination";
 import "./slider.css";
 import IconSection from "./IconSection";
 import { useSearchParams } from "react-router-dom";
-import CartPage from "../../components/main/CartPage";
+
 
 const mySlider = [
   { text: "MEN", link: "./images/banner-15.jpg" },
@@ -126,6 +126,12 @@ const Hero = () => {
                       },
                     }}
                     variant="contained"
+                    onClick={()=>{
+                     window.scrollBy({
+                      top:window.innerHeight,
+                      behavior:'smooth'
+                     })
+                    }}
                   >
                     shop now
                   </Button>

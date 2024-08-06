@@ -112,7 +112,7 @@ const Header2 = () => {
 
   return (
     
-    <Container sx={{ my: 3, display: "flex", justifyContent: "space-between" ,bottom: 0, left: 0, right: 0  }}>
+    <Container sx={{ my: 1, display: "flex", justifyContent: "space-between" ,bottom: 0, left: 0, right: 0  }}>
       <NavBarLink to={ROUTES.ROOT}>
         <Stack alignItems={"center"}>
           <ShoppingCartOutlined />

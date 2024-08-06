@@ -4,8 +4,7 @@ import useProducts from "./hooks/useProducts";
 import "./CartCss.css"
 import { useUser } from "../../Users/providers/UserProvider";
 import swal from 'sweetalert'
-import { color } from "framer-motion";
-import Header2 from "../../components/header/Header2";
+
 
 export default function CartPage() {
   
@@ -21,7 +20,7 @@ export default function CartPage() {
       setCartItems(cartItems);
     }
     loader();
-  }, [])
+  }, [cartItems])
   const handleDelete = async (id) => {
     await handleDeleteProduct(id);
      await handleGetAddedProducts();
@@ -35,6 +34,8 @@ export default function CartPage() {
       },
     }
   )
+
+ 
   
   return (
     
